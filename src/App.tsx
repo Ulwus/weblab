@@ -61,7 +61,7 @@ function App() {
 
         <section id="iletisim">
           <h2>İletişim</h2>
-          <form action="#" method="POST" noValidate>
+          <form action="#" method="POST">
             <fieldset>
               <legend>İletişim Formu</legend>
 
