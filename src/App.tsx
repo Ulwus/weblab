@@ -18,20 +18,27 @@ function App() {
       </header>
 
       <main id="main-content">
-
         <section id="hakkimda">
           <h2>Hakkımda</h2>
-          <figure>
-            <img src={profileImg} alt="Oğuzhan Gündüz'ün vesikalık fotoğrafı" style={{ width: '150px', borderRadius: '8px' }} />
-            <figcaption>Oğuzhan Gündüz</figcaption>
-          </figure>
-          <p>Merhaba, ben bir yazılım mühendisliği öğrencisiyim. Web teknolojileri ve erişilebilirlik üzerine çalışıyorum.</p>
-          <ul>
-            <li>Öğrenci No: 230541054</li>
-            <li>HTML5 & CSS3</li>
-            <li>JavaScript & React</li>
-            <li>Git & GitHub</li>
-          </ul>
+
+          <div className="profile-container">
+            <figure>
+              <img src={profileImg} alt="Oğuzhan Gündüz'ün vesikalık fotoğrafı" />
+              <figcaption>Oğuzhan Gündüz</figcaption>
+            </figure>
+          </div>
+
+          <div className="about-content">
+            <p>
+              Merhaba, ben bir yazılım mühendisliği öğrencisiyim. Web teknolojileri ve erişilebilirlik üzerine çalışıyorum.
+            </p>
+            <ul>
+              <li>Öğrenci No: 230541054</li>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript & React</li>
+              <li>Git & GitHub</li>
+            </ul>
+          </div>
         </section>
 
         <section id="projeler">
@@ -41,14 +48,14 @@ function App() {
             <h3>E-Ticaret Uygulaması</h3>
             <p>Kullanıcıların ürün arayıp sepete ekleyebildiği tam yığın bir web uygulaması.</p>
             <p><strong>Teknolojiler:</strong> React, Node.js, MongoDB</p>
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="E-ticaret uygulaması ürün listeleme ekran görüntüsü" style={{ maxWidth: '100%', borderRadius: '8px', marginTop: '10px' }} />
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="E-ticaret uygulaması ürün listeleme ekran görüntüsü" loading="lazy" />
           </article>
 
           <article>
             <h3>Otomatik Sınav Çizelgeleyici</h3>
             <p>Genetik algoritmalar kullanarak okul sınav takvimini optimize eden sistem.</p>
             <p><strong>Teknolojiler:</strong> Java, Spring Boot</p>
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Sınav takvimi optimizasyon arayüzü" style={{ maxWidth: '100%', borderRadius: '8px', marginTop: '10px' }} />
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Sınav takvimi optimizasyon arayüzü" loading="lazy" />
           </article>
         </section>
 
@@ -59,19 +66,19 @@ function App() {
               <legend>İletişim Formu</legend>
 
               <div className="form-group">
-                <label htmlFor="name">Ad Soyad: </label>
+                <label htmlFor="name">Ad Soyad: <span aria-hidden="true">*</span></label>
                 <input type="text" id="name" name="name" required minLength={2} aria-describedby="name-error" />
                 <small id="name-error" className="error-msg" role="alert"></small>
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">E-posta: </label>
+                <label htmlFor="email">E-posta: <span aria-hidden="true">*</span></label>
                 <input type="email" id="email" name="email" required aria-describedby="email-error" />
                 <small id="email-error" className="error-msg" role="alert"></small>
               </div>
 
               <div className="form-group">
-                <label htmlFor="subject">Konu: </label>
+                <label htmlFor="subject">Konu: <span aria-hidden="true">*</span></label>
                 <select id="subject" name="subject" required aria-describedby="subject-error">
                   <option value="">-- Seçiniz --</option>
                   <option value="is">İş Teklifi</option>
@@ -82,7 +89,7 @@ function App() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Mesajınız:</label>
+                <label htmlFor="message">Mesajınız: <span aria-hidden="true">*</span></label>
                 <textarea id="message" name="message" rows={5} required minLength={10} aria-describedby="message-error"></textarea>
                 <small id="message-error" className="error-msg" role="alert"></small>
               </div>
@@ -95,8 +102,11 @@ function App() {
       </main>
 
       <footer>
-        <p>&copy; 2026 Oğuzhan Gündüz. Tüm hakları saklıdır.</p>
-        <p><a href="https://github.com/Ulwus">GitHub Profilim</a></p>
+        <p>&copy; {new Date().getFullYear()} Oğuzhan Gündüz. Tüm hakları saklıdır.</p>
+        <p>
+          <a href="https://github.com/Ulwus" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profilim (Yeni sekmede açılır)">GitHub Profilim</a>
+          <a href="https://linkedin.com/in/Ulwus" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profilim (Yeni sekmede açılır)">LinkedIn</a>
+        </p>
       </footer>
     </>
   );
