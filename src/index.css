@@ -1,41 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
-
-:root {
-  font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: #e2e8f0;
-  background-color: #0f172a;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Genel sifirlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-  /* Animated gradient background */
-  background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #1e1b4b);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Skip link: normalde gizli, Tab ile gorunur */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #1E3A8A;
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus gostergesi -- ASLA kaldirma */
+:focus {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+/* Form stilleri */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.85rem;
+}
+
+/* Sayfa bosluklari icin ekstra dokunus */
+section {
+  margin-top: 40px;
+}
+
+article {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #eaeaea;
 }
