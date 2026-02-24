@@ -1,7 +1,64 @@
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 import './App.css';
 import profileImg from './assets/resim.jpeg';
 
 function App() {
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const formVals = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string,
+    };
+
+    const newErrors = {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    };
+    let isValid = true;
+
+    if (!formVals.name || formVals.name.trim().length < 2) {
+      newErrors.name = 'Lütfen geçerli bir ad soyad giriniz (en az 2 karakter).';
+      isValid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formVals.email || !emailRegex.test(formVals.email)) {
+      newErrors.email = 'Lütfen geçerli bir e-posta adresi giriniz.';
+      isValid = false;
+    }
+
+    if (!formVals.subject) {
+      newErrors.subject = 'Lütfen bir konu seçiniz.';
+      isValid = false;
+    }
+
+    if (!formVals.message || formVals.message.trim().length < 10) {
+      newErrors.message = 'Mesajınız en az 10 karakter uzunluğunda olmalıdır.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+
+    if (isValid) {
+      alert('Form başarıyla gönderildi!');
+      e.currentTarget.reset();
+    }
+  };
+
   return (
     <>
       <a href="#main-content" className="skip-link">Ana içeriğe atla</a>
@@ -61,37 +118,37 @@ function App() {
 
         <section id="iletisim">
           <h2>İletişim</h2>
-          <form action="#" method="POST">
+          <form action="#" method="POST" noValidate onSubmit={handleSubmit}>
             <fieldset>
               <legend>İletişim Formu</legend>
 
               <div className="form-group">
                 <label htmlFor="name">Ad Soyad: <span aria-hidden="true">*</span></label>
-                <input type="text" id="name" name="name" required minLength={2} aria-describedby="name-error" />
-                <small id="name-error" className="error-msg" role="alert"></small>
+                <input type="text" id="name" name="name" aria-describedby="name-error" aria-invalid={!!errors.name} />
+                <small id="name-error" className="error-msg" role="alert">{errors.name}</small>
               </div>
 
               <div className="form-group">
                 <label htmlFor="email">E-posta: <span aria-hidden="true">*</span></label>
-                <input type="email" id="email" name="email" required aria-describedby="email-error" />
-                <small id="email-error" className="error-msg" role="alert"></small>
+                <input type="email" id="email" name="email" aria-describedby="email-error" aria-invalid={!!errors.email} />
+                <small id="email-error" className="error-msg" role="alert">{errors.email}</small>
               </div>
 
               <div className="form-group">
                 <label htmlFor="subject">Konu: <span aria-hidden="true">*</span></label>
-                <select id="subject" name="subject" required aria-describedby="subject-error">
+                <select id="subject" name="subject" aria-describedby="subject-error" aria-invalid={!!errors.subject}>
                   <option value="">-- Seçiniz --</option>
                   <option value="is">İş Teklifi</option>
                   <option value="soru">Soru</option>
                   <option value="oneri">Öneri</option>
                 </select>
-                <small id="subject-error" className="error-msg" role="alert"></small>
+                <small id="subject-error" className="error-msg" role="alert">{errors.subject}</small>
               </div>
 
               <div className="form-group">
                 <label htmlFor="message">Mesajınız: <span aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" rows={5} required minLength={10} aria-describedby="message-error"></textarea>
-                <small id="message-error" className="error-msg" role="alert"></small>
+                <textarea id="message" name="message" rows={5} aria-describedby="message-error" aria-invalid={!!errors.message}></textarea>
+                <small id="message-error" className="error-msg" role="alert">{errors.message}</small>
               </div>
 
               <button type="submit">Gönder</button>
