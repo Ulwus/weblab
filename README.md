@@ -76,3 +76,41 @@ Bu çalışmada, önceden oluşturulan portföy tasarımı semantik HTML5 etiket
 * [`a44366b`](https://github.com/Ulwus/weblab/commit/a44366b) style: add base CSS and skip link
 * [`534fba9`](https://github.com/Ulwus/weblab/commit/534fba9) feat: add accessible contact form
 * [`67c65ec`](https://github.com/Ulwus/weblab/commit/67c65ec) feat: add semantic HTML portfolio structure
+
+---
+
+## Lab 3: Responsive Layout ve Design Tokens
+
+Bu çalışmada, portföy sitesine mobile-first responsive layout uygulanmış, CSS design token'ları ile tutarlı bir stil sistemi kurulmuş ve fluid typography ile farklı ekran boyutlarına uyum sağlanmıştır. Navigasyon Flexbox, proje kartları ise CSS Grid ile düzenlenmiştir.
+
+### Değerlendirme Kriterleri (Checklist)
+
+- [x] CSS değişkenleri (`:root` içinde design tokens) tanımlanmış mı?
+- [x] Fluid typography (`clamp()`) uygulanmış mı?
+- [x] Navigasyon çubuğu Flexbox ile responsive yapılmış mı?
+- [x] Proje kartları Grid ile ızgara düzeninde mi?
+- [x] Mobile-first yaklaşım uygulanmış mı? (`min-width` media query'ler)
+- [x] En az 3 breakpoint tanımlanmış ve çalışıyor mu? (mobil / tablet / masaüstü)
+- [x] Görseller `max-width: 100%` ile responsive mi?
+- [x] `<meta name="viewport">` etiketi mevcut mu?
+- [x] Tab ile gezinme ve focus göstergesi hâlâ çalışıyor mu? (LAB-2 kazanımları bozulmamış)
+- [ ] 3 ekran görüntüsü (mobil / tablet / masaüstü) alınmış mı?
+- [x] CSS Kararları notu yazılmış mı?
+- [x] En az 3 anlamlı commit atılmış ve branch kullanılmış mı?
+- [x] GitHub'a push edilmiş mi?
+
+### Ekran Görüntüleri
+
+| Mobil | Tablet | Masaüstü |
+|-------|--------|----------|
+| ![Mobil](gitassets/lab3/mobil.png) | ![Tablet](gitassets/lab3/tablet.png) | ![Masaüstü](gitassets/lab3/masaustu.png) |
+
+### Yapılan Commitler
+
+* [`f58c5b4`](https://github.com/Ulwus/weblab/commit/f58c5b4) added image
+* [`84054da`](https://github.com/Ulwus/weblab/commit/84054da) docs: document CSS responsive layout decisions
+* [`0560dbf`](https://github.com/Ulwus/weblab/commit/0560dbf) fix: responsive and colors
+* [`4bceca7`](https://github.com/Ulwus/weblab/commit/4bceca7) feat: implement mobile-first responsive layout
+* [`e87cb53`](https://github.com/Ulwus/weblab/commit/e87cb53) feat: add project card grid layout
+* [`d2b7d4d`](https://github.com/Ulwus/weblab/commit/d2b7d4d) feat: add responsive navigation with Flexbox
+* [`a3d8132`](https://github.com/Ulwus/weblab/commit/a3d8132) feat: add CSS design tokens with fluid typography
