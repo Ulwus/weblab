@@ -103,7 +103,7 @@ Bu çalışmada, portföy sitesine mobile-first responsive layout uygulanmış, 
 
 | Mobil | Tablet | Masaüstü |
 |-------|--------|----------|
-| ![Mobil](screenshots/lab3/screenshot-mobile.png) | ![Tablet](screenshots/lab3/screenshot-tablet.png) | ![Masaüstü](screenshots/lab3/screenshot-desktop.png) |
+| ![Mobil](screenshots/screenshot-mobile.png) | ![Tablet](screenshots/screenshot-tablet.png) | ![Masaüstü](screenshots/screenshot-desktop.png) |
 
 ### Yapılan Commitler
 
