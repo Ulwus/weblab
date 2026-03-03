@@ -10,9 +10,6 @@
 body {
   font-family: var(--font-sans);
   line-height: var(--line-height-normal);
-  padding: var(--space-lg);
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
 }
 
 /* Skip link: normalde gizli, Tab ile gorunur */

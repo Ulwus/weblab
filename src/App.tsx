@@ -64,7 +64,7 @@ function App() {
       <a href="#main-content" className="skip-link">Ana içeriğe atla</a>
 
       <header>
-        <h1 className="site-title">Oğuzhan Gündüz - Kişisel Portföy</h1>
+        <h1 className="site-title">Oğuzhan Gündüz</h1>
         <nav aria-label="Ana navigasyon">
           <ul>
             <li><a href="#hakkimda">Hakkımda</a></li>

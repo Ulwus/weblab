@@ -20,11 +20,11 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
+  background-color: var(--color-surface);
+  color: var(--text-main);
   line-height: var(--line-height-normal);
   margin: 0;
-  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 1.5rem);
+  padding: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -32,11 +32,33 @@ body {
 
 #root {
   width: 100%;
-  max-width: var(--container-max-width);
+  max-width: var(--container-max-width, 1200px);
   background-color: var(--color-surface);
-  padding: clamp(2.5rem, 4vw, 4rem) clamp(1.75rem, 4vw, 5rem);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-neo-out);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 1.5rem);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (min-width: 640px) {
+  body {
+    background-color: var(--color-bg);
+    padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 1.5rem);
+  }
+
+  #root {
+    padding: clamp(2.5rem, 4vw, 4rem) clamp(1.75rem, 4vw, 5rem);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-neo-out);
+  }
+}
+
+/* Sticky header varken anchor scroll offset */
+html {
+  scroll-padding-top: 7.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 7.5rem;
 }
 
 /* Skip Link */
@@ -80,7 +102,7 @@ header {
 }
 
 header .site-title {
-  font-size: 3.5rem;
+  font-size: 2.4rem;
   font-weight: 800;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
@@ -88,12 +110,14 @@ header .site-title {
   color: transparent;
   letter-spacing: -0.05em;
   margin: 0;
+  text-align: center;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
+  justify-content: center;
 }
 
 nav ul {
@@ -102,14 +126,23 @@ nav ul {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+nav li {
+  display: flex;
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 600;
-  padding: 1rem 2rem;
+  line-height: 1;
+  padding: 0.85rem 1.4rem;
   border-radius: 20px;
   background: var(--surface-color);
   box-shadow: var(--shadow-neo-out);
@@ -131,7 +164,7 @@ nav a:focus {
   }
 
   nav {
-    justify-content: flex-end;
+    justify-content: center;
   }
 }
 
@@ -221,10 +254,16 @@ figcaption {
 #hakkimda ul {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 1.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  #hakkimda ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 #hakkimda li {
@@ -431,5 +470,25 @@ footer a:active {
 
   .project-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 6.5rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 7rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 7rem;
   }
 }
