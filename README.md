@@ -94,7 +94,7 @@ Bu çalışmada, portföy sitesine mobile-first responsive layout uygulanmış, 
 - [x] Görseller `max-width: 100%` ile responsive mi?
 - [x] `<meta name="viewport">` etiketi mevcut mu?
 - [x] Tab ile gezinme ve focus göstergesi hâlâ çalışıyor mu? (LAB-2 kazanımları bozulmamış)
-- [ ] 3 ekran görüntüsü (mobil / tablet / masaüstü) alınmış mı?
+- [x] 3 ekran görüntüsü (mobil / tablet / masaüstü) alınmış mı?
 - [x] CSS Kararları notu yazılmış mı?
 - [x] En az 3 anlamlı commit atılmış ve branch kullanılmış mı?
 - [x] GitHub'a push edilmiş mi?
@@ -103,7 +103,7 @@ Bu çalışmada, portföy sitesine mobile-first responsive layout uygulanmış, 
 
 | Mobil | Tablet | Masaüstü |
 |-------|--------|----------|
-| ![Mobil](gitassets/lab3/mobil.png) | ![Tablet](gitassets/lab3/tablet.png) | ![Masaüstü](gitassets/lab3/masaustu.png) |
+| ![Mobil](screenshots/lab3/screenshot-mobile.png) | ![Tablet](screenshots/lab3/screenshot-tablet.png) | ![Masaüstü](screenshots/lab3/screenshot-desktop.png) |
 
 ### Yapılan Commitler
 
