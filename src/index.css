@@ -72,3 +72,9 @@ article {
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
