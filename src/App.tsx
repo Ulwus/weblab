@@ -101,19 +101,39 @@ function App() {
         <section id="projeler">
           <h2>Projelerim</h2>
 
-          <article>
-            <h3>E-Ticaret Uygulaması</h3>
-            <p>Kullanıcıların ürün arayıp sepete ekleyebildiği tam yığın bir web uygulaması.</p>
-            <p><strong>Teknolojiler:</strong> React, Node.js, MongoDB</p>
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="E-ticaret uygulaması ürün listeleme ekran görüntüsü" loading="lazy" />
-          </article>
+          <div className="project-grid">
+            <article className="project-card">
+              <h3>E-Ticaret Uygulaması</h3>
+              <p>Kullanıcıların ürün arayıp sepete ekleyebildiği tam yığın bir web uygulaması.</p>
+              <p><strong>Teknolojiler:</strong> React, Node.js, MongoDB</p>
+              <ul className="skill-tags">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+              </ul>
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80"
+                alt="E-ticaret uygulaması ürün listeleme ekran görüntüsü"
+                loading="lazy"
+              />
+            </article>
 
-          <article>
-            <h3>Otomatik Sınav Çizelgeleyici</h3>
-            <p>Genetik algoritmalar kullanarak okul sınav takvimini optimize eden sistem.</p>
-            <p><strong>Teknolojiler:</strong> Java, Spring Boot</p>
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Sınav takvimi optimizasyon arayüzü" loading="lazy" />
-          </article>
+            <article className="project-card">
+              <h3>Otomatik Sınav Çizelgeleyici</h3>
+              <p>Genetik algoritmalar kullanarak okul sınav takvimini optimize eden sistem.</p>
+              <p><strong>Teknolojiler:</strong> Java, Spring Boot</p>
+              <ul className="skill-tags">
+                <li>Java</li>
+                <li>Spring Boot</li>
+                <li>Algoritmalar</li>
+              </ul>
+              <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+                alt="Sınav takvimi optimizasyon arayüzü"
+                loading="lazy"
+              />
+            </article>
+          </div>
         </section>
 
         <section id="iletisim">
