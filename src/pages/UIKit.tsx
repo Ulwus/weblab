@@ -12,7 +12,7 @@ export default function UIKit() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 p-8 space-y-12">
+    <div className="min-h-screen bg-surface dark:bg-gray-950 p-8 space-y-12">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
           UI Kit

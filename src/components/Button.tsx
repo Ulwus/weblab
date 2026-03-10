@@ -10,20 +10,24 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: `bg-primary text-white hover:bg-primary-strong
-    focus-visible:ring-primary-soft dark:bg-primary-soft dark:hover:bg-primary`,
-  secondary: `bg-gray-200 text-gray-800 hover:bg-gray-300
-    focus-visible:ring-gray-500 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600`,
-  danger: `bg-red-600 text-white hover:bg-red-700
-    focus-visible:ring-red-500 dark:bg-red-500 dark:hover:bg-red-400`,
-  ghost: `bg-transparent text-gray-700 hover:bg-gray-100
-    focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-gray-800`,
+  primary: `bg-surface dark:bg-gray-700 text-primary dark:text-primary-soft
+    shadow-neo dark:shadow-md hover:shadow-neo-in hover:translate-y-0.5 dark:hover:shadow-inner
+    focus-visible:ring-primary`,
+  secondary: `bg-surface dark:bg-gray-700 text-slate-600 dark:text-gray-300
+    shadow-neo dark:shadow-md hover:shadow-neo-in hover:translate-y-0.5 dark:hover:shadow-inner hover:text-primary
+    focus-visible:ring-gray-500`,
+  danger: `bg-surface dark:bg-gray-700 text-red-500 dark:text-red-400
+    shadow-neo dark:shadow-md hover:shadow-neo-in hover:translate-y-0.5 dark:hover:shadow-inner
+    focus-visible:ring-red-500`,
+  ghost: `bg-transparent text-slate-600 dark:text-gray-300 hover:text-primary
+    hover:bg-slate-50 dark:hover:bg-gray-800
+    focus-visible:ring-gray-400`,
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-6 py-3 text-lg',
+  sm: 'px-4 py-2 text-sm rounded-xl',
+  md: 'px-6 py-3 text-base rounded-[20px]',
+  lg: 'px-8 py-4 text-lg rounded-[20px]',
 };
 
 export default function Button({
@@ -34,10 +38,10 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const base = `inline-flex items-center justify-center font-medium rounded-lg
-    transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`;
+  const base = `inline-flex items-center justify-center font-bold
+    transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`;
 
-  const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
+  const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none shadow-none text-slate-400' : 'active:shadow-neo-in dark:active:shadow-inner';
 
   return (
     <button

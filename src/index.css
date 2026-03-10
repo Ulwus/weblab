@@ -10,6 +10,7 @@
   --color-secondary: #7c3aed;
   --color-accent: #a855f7;
   --color-surface: #f1f5f9;
+  --color-bg: #e2e8f0;
   --color-muted: #64748b;
   --color-error: #dc2626;
   --color-success: #16a34a;
@@ -17,10 +18,25 @@
 
   --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'Fira Code', 'Consolas', monospace;
+
+  --shadow-neo: 12px 12px 24px #c8d0d8, -12px -12px 24px #ffffff;
+  --shadow-neo-in: inset 6px 6px 12px #c8d0d8, inset -6px -6px 12px #ffffff;
+  --shadow-neo-hover: 18px 18px 36px #c8d0d8, -18px -18px 36px #ffffff;
+}
+
+html {
+  scroll-padding-top: 7.5rem;
+}
+
+@media (min-width: 640px) {
+  html { scroll-padding-top: 6.5rem; }
+}
+@media (min-width: 1024px) {
+  html { scroll-padding-top: 7rem; }
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary-soft);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 8px;
 }

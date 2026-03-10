@@ -16,16 +16,17 @@ export default function Input({
   disabled,
   ...props
 }: InputProps) {
-  const baseInput = `w-full px-3 py-2 rounded-lg border transition-colors
-    focus:outline-none focus:ring-2 dark:text-gray-100`;
+  const baseInput = `w-full px-6 py-5 border-none rounded-2xl transition-all
+    text-[1.05rem] font-[inherit] focus:outline-none bg-surface dark:bg-gray-800
+    shadow-neo-in dark:shadow-inner text-gray-900 dark:text-gray-100`;
 
   const stateClass = error
-    ? 'border-red-500 focus:ring-red-500'
-    : 'border-gray-300 focus:ring-primary-soft dark:border-gray-600';
+    ? 'ring-2 ring-red-500/50 focus:ring-red-500'
+    : 'focus:ring-2 focus:ring-primary/50';
 
   const disabledClass = disabled
-    ? 'bg-gray-100 cursor-not-allowed dark:bg-gray-900'
-    : 'bg-white dark:bg-gray-800';
+    ? 'opacity-60 cursor-not-allowed'
+    : '';
 
   const describedBy = error
     ? `${id}-error`
@@ -38,7 +39,7 @@ export default function Input({
       {label && (
         <label
           htmlFor={id}
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          className="block font-semibold mb-3 text-slate-600 dark:text-gray-300 pl-2"
         >
           {label}
         </label>
@@ -55,13 +56,13 @@ export default function Input({
       />
 
       {error && (
-        <p id={`${id}-error`} role="alert" className="text-sm text-red-600 dark:text-red-400">
+        <p id={`${id}-error`} role="alert" className="text-red-500 text-[0.9rem] font-semibold mt-2 pl-2">
           {error}
         </p>
       )}
 
       {helpText && !error && (
-        <p id={`${id}-help`} className="text-sm text-gray-500 dark:text-gray-400">
+        <p id={`${id}-help`} className="text-[0.9rem] text-slate-500 dark:text-gray-400 mt-2 pl-2 font-medium">
           {helpText}
         </p>
       )}

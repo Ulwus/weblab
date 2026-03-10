@@ -12,9 +12,9 @@ interface CardProps {
 }
 
 const variantClasses: Record<CardVariant, string> = {
-  elevated: 'bg-white dark:bg-gray-800 shadow-md hover:shadow-lg',
-  outlined: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700',
-  filled: 'bg-gray-100 dark:bg-gray-800',
+  elevated: 'bg-surface dark:bg-gray-800 shadow-neo dark:shadow-md hover:shadow-neo-in dark:hover:shadow-inner transition-all',
+  outlined: 'bg-surface dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 shadow-sm transition-all',
+  filled: 'bg-gradient-to-br from-slate-400/5 to-slate-400/20 dark:from-gray-800 dark:to-gray-700 shadow-neo-in dark:shadow-inner transition-all',
 };
 
 export default function Card({
@@ -26,24 +26,24 @@ export default function Card({
   variant = 'elevated',
 }: CardProps) {
   return (
-    <div className={`rounded-xl overflow-hidden transition-shadow ${variantClasses[variant]}`}>
+    <div className={`rounded-3xl overflow-hidden ${variantClasses[variant]}`}>
       {image && (
-        <img src={image} alt={imageAlt || ''} className="w-full h-48 object-cover" />
+        <img src={image} alt={imageAlt || ''} className="w-full h-48 object-cover border-b-2 border-surface dark:border-gray-700" />
       )}
 
-      <div className="p-5">
+      <div className="p-8">
         {title && (
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <h3 className="text-xl font-extrabold text-gray-900 dark:text-white mb-3">
             {title}
           </h3>
         )}
-        <div className="text-gray-600 dark:text-gray-400">
+        <div className="text-slate-600 dark:text-gray-400 text-[1.05rem] leading-relaxed">
           {children}
         </div>
       </div>
 
       {footer && (
-        <div className="px-5 py-3 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-700">
+        <div className="px-8 py-5 border-t-2 border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5">
           {footer}
         </div>
       )}
