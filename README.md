@@ -114,3 +114,35 @@ Bu çalışmada, portföy sitesine mobile-first responsive layout uygulanmış, 
 * [`e87cb53`](https://github.com/Ulwus/weblab/commit/e87cb53) feat: add project card grid layout
 * [`d2b7d4d`](https://github.com/Ulwus/weblab/commit/d2b7d4d) feat: add responsive navigation with Flexbox
 * [`a3d8132`](https://github.com/Ulwus/weblab/commit/a3d8132) feat: add CSS design tokens with fluid typography
+
+---
+
+## Lab 4: Tailwind CSS ve UI Kit Entegrasyonu
+
+Bu çalışmada projeye Tailwind CSS v4 entegre edilmiş, Utility-First yaklaşımıyla özel bileşenlerden oluşan bir UI Kit (Button, Input, Card, Alert) geliştirilmiş ve portföy sayfası Tailwind CSS kullanılarak Neumorphic tasarım diline sadık kalacak şekilde yeniden yazılmıştır.
+
+### Değerlendirme Kriterleri (Checklist)
+
+- [x] Tailwind CSS v4 kurulu ve çalışıyor mu? (npm run dev ile hata yok)
+- [x] @theme ile özel renk/font tanımlanmış mı?
+- [x] Responsive prefix’ler (sm:, md:, lg:) kullanılmış mı?
+- [x] Dark mode (dark:) desteği eklenmiş mi? Toggle butonu çalışıyor mu?
+- [x] Button component en az 4 renk varyantına sahip mi?
+- [x] Input component hata durumunu (error) destekliyor mu?
+- [x] Card component en az 2 stil varyantına sahip mi?
+- [x] Alert component en az 4 renk varyantına sahip mi?
+- [x] UI Kit sayfasında en az 8 component varyantı sergilenmiş mi?
+- [x] Portföy sayfası (veya landing page) Tailwind ile stillenmiş mi?
+- [x] Erişilebilirlik korunmuş mu? (focus:ring, aria-label, skip link, role="alert")
+
+### Yapılan Commitler
+
+* [`b0f9d08`](https://github.com/Ulwus/weblab/commit/b0f9d08) Merge pull request #5 from Ulwus/feature/tailwind-ui-kit
+* [`4465e26`](https://github.com/Ulwus/weblab/commit/4465e26) fix: restore neumorphic design with Tailwind utility classes
+* [`4da0797`](https://github.com/Ulwus/weblab/commit/4da0797) fix: improve dark mode toggle visibility, UI Kit button, and focus styles
+* [`bcc1ea6`](https://github.com/Ulwus/weblab/commit/bcc1ea6) feat: add UI Kit page showcasing 8+ component variants
+* [`7892508`](https://github.com/Ulwus/weblab/commit/7892508) feat: migrate portfolio page to Tailwind CSS with responsive and dark mode
+* [`3d03c7b`](https://github.com/Ulwus/weblab/commit/3d03c7b) feat: add Card and Alert components with multiple variants
+* [`12ad511`](https://github.com/Ulwus/weblab/commit/12ad511) feat: add Input component with error and help text states
+* [`dc2b7c5`](https://github.com/Ulwus/weblab/commit/dc2b7c5) feat: add Button component with 4 color and 3 size variants
+* [`aceae48`](https://github.com/Ulwus/weblab/commit/aceae48) feat: install and configure Tailwind CSS v4 with custom theme
