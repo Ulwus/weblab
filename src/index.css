@@ -1,77 +1,19 @@
-@import './styles/tokens.css';
+@import "tailwindcss";
 
-/* Genel sifirlama */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
-body {
-  font-family: var(--font-sans);
-  line-height: var(--line-height-normal);
-}
+@theme {
+  --color-primary: #4f46e5;
+  --color-primary-soft: #6366f1;
+  --color-primary-strong: #4338ca;
+  --color-secondary: #7c3aed;
+  --color-accent: #a855f7;
+  --color-surface: #f1f5f9;
+  --color-muted: #64748b;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
 
-/* Skip link: normalde gizli, Tab ile gorunur */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: var(--color-primary);
-  color: var(--color-text-on-primary);
-  padding: var(--space-xs) var(--space-md);
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* Focus gostergesi -- ASLA kaldirma */
-:focus {
-  outline: 2px solid var(--color-primary-soft);
-  outline-offset: 2px;
-}
-
-/* Form stilleri */
-.form-group {
-  margin-bottom: var(--space-md);
-}
-
-label {
-  display: block;
-  margin-bottom: var(--space-2xs);
-}
-
-input,
-textarea,
-select {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-sm);
-}
-
-.error-msg {
-  color: #ef4444;
-  font-size: var(--text-sm);
-}
-
-/* Sayfa bosluklari icin ekstra dokunus */
-section {
-  margin-top: var(--space-2xl);
-}
-
-article {
-  margin-bottom: var(--space-lg);
-  padding: var(--space-md);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
-  background-color: var(--color-surface);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'Fira Code', 'Consolas', monospace;
 }
