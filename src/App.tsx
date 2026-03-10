@@ -68,9 +68,10 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-gray-950">
         <button
           onClick={toggleDarkMode}
-          className="fixed top-4 right-4 z-50 bg-gray-200 dark:bg-gray-700
-            text-gray-800 dark:text-gray-200 p-2 rounded-full shadow-lg
-            hover:scale-110 transition-transform"
+          className="fixed top-4 right-4 z-50 bg-gray-800 dark:bg-yellow-400
+            text-white dark:text-gray-900 w-10 h-10 flex items-center justify-center
+            text-xl rounded-full shadow-lg hover:scale-110 transition-transform
+            border-2 border-gray-600 dark:border-yellow-500"
           aria-label="Tema değiştir"
         >
           <span className="dark:hidden">&#9790;</span>
@@ -104,9 +105,10 @@ function App() {
       {/* Dark Mode Toggle */}
       <button
         onClick={toggleDarkMode}
-        className="fixed top-4 right-4 z-50 bg-gray-200 dark:bg-gray-700
-          text-gray-800 dark:text-gray-200 p-2 rounded-full shadow-lg
-          hover:scale-110 transition-transform"
+        className="fixed top-4 right-4 z-50 bg-gray-800 dark:bg-yellow-400
+          text-white dark:text-gray-900 w-10 h-10 flex items-center justify-center
+          text-xl rounded-full shadow-lg hover:scale-110 transition-transform
+          border-2 border-gray-600 dark:border-yellow-500"
         aria-label="Tema değiştir"
       >
         <span className="dark:hidden">&#9790;</span>
@@ -124,8 +126,9 @@ function App() {
               <li>
                 <a
                   href="#hakkimda"
-                  className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300
-                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors"
+                  className="px-3 py-1.5 rounded-md text-gray-700 dark:text-gray-300
+                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors
+                    focus-visible:ring-2 focus-visible:ring-primary-soft"
                 >
                   Hakkımda
                 </a>
@@ -133,8 +136,9 @@ function App() {
               <li>
                 <a
                   href="#projeler"
-                  className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300
-                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors"
+                  className="px-3 py-1.5 rounded-md text-gray-700 dark:text-gray-300
+                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors
+                    focus-visible:ring-2 focus-visible:ring-primary-soft"
                 >
                   Projeler
                 </a>
@@ -142,8 +146,9 @@ function App() {
               <li>
                 <a
                   href="#iletisim"
-                  className="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300
-                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors"
+                  className="px-3 py-1.5 rounded-md text-gray-700 dark:text-gray-300
+                    hover:bg-primary/10 dark:hover:bg-gray-800 transition-colors
+                    focus-visible:ring-2 focus-visible:ring-primary-soft"
                 >
                   İletişim
                 </a>
@@ -151,9 +156,9 @@ function App() {
             </ul>
             <button
               onClick={() => setPage('uikit')}
-              className="px-3 py-1 rounded-md text-primary dark:text-primary-soft
-                font-medium border border-primary/30 hover:bg-primary/10
-                dark:hover:bg-gray-800 transition-colors text-sm"
+              className="px-3 py-1.5 rounded-lg bg-primary text-white font-semibold
+                text-sm hover:bg-primary-strong dark:bg-primary-soft
+                dark:hover:bg-primary transition-colors"
             >
               UI Kit
             </button>

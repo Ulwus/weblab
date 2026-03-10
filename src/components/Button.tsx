@@ -10,14 +10,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: `bg-primary text-white hover:bg-primary-strong focus:ring-primary-soft
-    dark:bg-primary-soft dark:hover:bg-primary`,
-  secondary: `bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500
-    dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600`,
-  danger: `bg-red-600 text-white hover:bg-red-700 focus:ring-red-500
-    dark:bg-red-500 dark:hover:bg-red-400`,
-  ghost: `bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-400
-    dark:text-gray-300 dark:hover:bg-gray-800`,
+  primary: `bg-primary text-white hover:bg-primary-strong
+    focus-visible:ring-primary-soft dark:bg-primary-soft dark:hover:bg-primary`,
+  secondary: `bg-gray-200 text-gray-800 hover:bg-gray-300
+    focus-visible:ring-gray-500 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600`,
+  danger: `bg-red-600 text-white hover:bg-red-700
+    focus-visible:ring-red-500 dark:bg-red-500 dark:hover:bg-red-400`,
+  ghost: `bg-transparent text-gray-700 hover:bg-gray-100
+    focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-gray-800`,
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -35,7 +35,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base = `inline-flex items-center justify-center font-medium rounded-lg
-    transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2`;
+    transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`;
 
   const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
 
