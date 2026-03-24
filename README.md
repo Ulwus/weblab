@@ -146,3 +146,34 @@ Bu çalışmada projeye Tailwind CSS v4 entegre edilmiş, Utility-First yaklaş�
 * [`12ad511`](https://github.com/Ulwus/weblab/commit/12ad511) feat: add Input component with error and help text states
 * [`dc2b7c5`](https://github.com/Ulwus/weblab/commit/dc2b7c5) feat: add Button component with 4 color and 3 size variants
 * [`aceae48`](https://github.com/Ulwus/weblab/commit/aceae48) feat: install and configure Tailwind CSS v4 with custom theme
+
+---
+
+## Lab 5: JavaScript/TypeScript Temelleri, Fetch API ve State Yönetimi
+
+Bu çalışmada TypeScript ile tip güvenli bir veri modeli kurulmuş, `public/data/projects.json` dosyasından Fetch API ile proje verileri çekilmiş ve React state yaklaşımıyla arama, kategori filtresi ve sıralama özellikleri uygulanmıştır. Kod, `types`, `services`, `utils` ve `components` ayrımıyla modüler yapıda düzenlenmiştir.
+
+### Teslim Öncesi Kontrol Listesi
+
+- [x] TypeScript tipleri tanımlanmış mı? (Project, Category, FilterState vb.)
+- [x] any tipi hiçbir yerde kullanılmamış mı?
+- [x] JSON veri dosyası (`public/data/projects.json`) en az 5 proje içeriyor mu?
+- [x] Fetch API ile veri çekme çalışıyor mu?
+- [x] Hata durumu (error state) kullanıcıya gösterilmiş mi?
+- [x] Yükleniyor (loading) durumu gösterilmiş mi?
+- [x] Arama (search) filtresi çalışıyor mu?
+- [x] Kategori filtresi çalışıyor mu?
+- [x] Sıralama (sort) çalışıyor mu?
+- [x] Kod modüler mi? (types, services, utils, components ayrı dosyalarda)
+- [x] TypeScript derlemede hata yok mu? (`npx tsc --noEmit`)
+- [x] En az 3 anlamlı commit atılmış ve branch kullanılmış mı?
+- [x] GitHub’a push edilmiş mi?
+
+### Yapılan Commitler
+
+* [`db80b82`](https://github.com/Ulwus/weblab/commit/db80b82030a6ee84e22a2a1b4c32a232f6f10e77) Merge pull request #6 from Ulwus/feature/typescript-projects
+* [`7a77353`](https://github.com/Ulwus/weblab/commit/7a77353fe6121a1496694afe41441aa8f367900d) feat: implement project listing with filter/sort
+* [`fb7da8b`](https://github.com/Ulwus/weblab/commit/fb7da8b80efb23eba0db0783a06f39c3004c9f79) feat: add filter and sort helpers
+* [`fd21674`](https://github.com/Ulwus/weblab/commit/fd21674d8dce9f0651bb0f782fff7ac2c0a73b79) feat: add project fetch service
+* [`4dcdbbf`](https://github.com/Ulwus/weblab/commit/4dcdbbf4a297dfec1503e65235eeef6ba8fb2220) feat: add project mock data JSON
+* [`c02f068`](https://github.com/Ulwus/weblab/commit/c02f0687f751a0642eec4ee638781db012cfd4ce) feat: add Project TypeScript types
