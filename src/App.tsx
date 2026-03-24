@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
-import type { ChangeEvent, FormEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 import profileImg from './assets/resim.jpeg';
-import Alert from './components/Alert';
 import Button from './components/Button';
-import Card from './components/Card';
 import Input from './components/Input';
 import UIKit from './pages/UIKit';
-import { fetchProjects } from './services/projectService';
-import type { Category, Project, SortField, SortOrder } from './types/project';
-import { applyFilters } from './utils/projectHelpers';
 
 function App() {
   const [errors, setErrors] = useState({
@@ -19,41 +14,6 @@ function App() {
   });
 
   const [page, setPage] = useState<'portfolio' | 'uikit'>('portfolio');
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [search, setSearch] = useState('');
-  const [category, setCategory] = useState<Category | 'all'>('all');
-  const [sortField, setSortField] = useState<SortField>('year');
-  const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const categories: (Category | 'all')[] = ['all', 'frontend', 'fullstack', 'backend'];
-
-  useEffect(() => {
-    async function loadProjects() {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await fetchProjects();
-        setProjects(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Bilinmeyen hata');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadProjects();
-  }, []);
-
-  const filteredProjects = applyFilters(projects, search, category, sortField, sortOrder);
-
-  const handleSortFieldChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    if (value === 'year' || value === 'title') {
-      setSortField(value);
-    }
-  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -283,101 +243,73 @@ function App() {
               Projelerim
             </h2>
 
-            {error && (
-              <div className="mb-6">
-                <Alert variant="error" title="Hata">
-                  {error}
-                </Alert>
-              </div>
-            )}
-
-            <div className="flex flex-col gap-4 mb-8">
-              <Input
-                id="project-search"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Proje ara..."
-                label="Arama"
-              />
-
-              <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <Button
-                    key={cat}
-                    variant={category === cat ? 'primary' : 'ghost'}
-                    size="sm"
-                    onClick={() => setCategory(cat)}
-                  >
-                    {cat === 'all' ? 'Tumu' : cat}
-                  </Button>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2 flex-wrap">
-                <select
-                  value={sortField}
-                  onChange={handleSortFieldChange}
-                  className="px-4 py-2 rounded-xl bg-surface dark:bg-gray-800 shadow-neo-in dark:shadow-inner text-gray-900 dark:text-gray-100"
-                >
-                  <option value="year">Yil</option>
-                  <option value="title">Baslik</option>
-                </select>
-
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={() =>
-                    setSortOrder((order) => (order === 'asc' ? 'desc' : 'asc'))
-                  }
-                >
-                  {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
-                </Button>
-              </div>
-            </div>
-
-            {loading && (
-              <p className="text-center text-slate-600 dark:text-gray-400 mb-6">
-                Yukleniyor...
-              </p>
-            )}
-
-            {!loading && filteredProjects.length === 0 && (
-              <p className="text-center text-slate-600 dark:text-gray-400 mb-6">
-                Eslesen proje bulunamadi.
-              </p>
-            )}
-
             <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] lg:grid-cols-3 gap-10">
-              {filteredProjects.map((project) => (
-                <Card
-                  key={project.id}
-                  title={project.title}
-                  image={project.image}
-                  imageAlt={`${project.title} ekran goruntusu`}
-                  variant="elevated"
-                >
-                  <p className="mb-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 rounded-full text-sm font-semibold text-primary
-                          bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-sm mt-3 text-slate-500 dark:text-gray-400">
-                    {project.year} · {project.category}
-                  </p>
-                </Card>
-              ))}
-            </div>
+              {/* Proje 1 */}
+              <article className="flex flex-col bg-surface dark:bg-gray-800 rounded-3xl p-10 mb-0 shadow-neo dark:shadow-lg">
+                <h3 className="text-[1.75rem] font-extrabold mb-4 text-gray-900 dark:text-white">
+                  E-Ticaret Uygulaması
+                </h3>
+                <p className="text-slate-600 dark:text-gray-400 mb-4 text-[1.1rem]">
+                  Kullanıcıların ürün arayıp sepete ekleyebildiği tam yığın bir web uygulaması.
+                </p>
+                <p className="text-slate-600 dark:text-gray-400 mb-4 text-[1.1rem]">
+                  <strong className="text-primary">Teknolojiler:</strong> React, Node.js, MongoDB
+                </p>
+                <ul className="flex flex-wrap gap-2 mt-4 list-none p-0">
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    React
+                  </li>
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    Node.js
+                  </li>
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    MongoDB
+                  </li>
+                </ul>
+                <img
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80"
+                  alt="E-ticaret uygulaması ürün listeleme ekran görüntüsü"
+                  loading="lazy"
+                  className="w-full rounded-2xl mt-8 shadow-neo-in dark:shadow-inner border-4 border-surface dark:border-gray-700"
+                />
+              </article>
 
-            <p className="text-sm text-slate-500 dark:text-gray-400 mt-4 text-center">
-              {filteredProjects.length} / {projects.length} proje gosteriliyor
-            </p>
+              {/* Proje 2 */}
+              <article className="flex flex-col bg-surface dark:bg-gray-800 rounded-3xl p-10 mb-0 shadow-neo dark:shadow-lg">
+                <h3 className="text-[1.75rem] font-extrabold mb-4 text-gray-900 dark:text-white">
+                  Otomatik Sınav Çizelgeleyici
+                </h3>
+                <p className="text-slate-600 dark:text-gray-400 mb-4 text-[1.1rem]">
+                  Genetik algoritmalar kullanarak okul sınav takvimini optimize eden sistem.
+                </p>
+                <p className="text-slate-600 dark:text-gray-400 mb-4 text-[1.1rem]">
+                  <strong className="text-primary">Teknolojiler:</strong> Java, Spring Boot
+                </p>
+                <ul className="flex flex-wrap gap-2 mt-4 list-none p-0">
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    Java
+                  </li>
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    Spring Boot
+                  </li>
+                  <li className="px-3.5 py-1.5 rounded-full text-sm font-semibold text-primary
+                    bg-gradient-to-br from-slate-400/15 to-slate-400/5 shadow-neo dark:shadow-sm dark:bg-gray-700">
+                    Algoritmalar
+                  </li>
+                </ul>
+                <img
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+                  alt="Sınav takvimi optimizasyon arayüzü"
+                  loading="lazy"
+                  className="w-full rounded-2xl mt-8 shadow-neo-in dark:shadow-inner border-4 border-surface dark:border-gray-700"
+                />
+              </article>
+            </div>
           </section>
 
           {/* İletişim */}
