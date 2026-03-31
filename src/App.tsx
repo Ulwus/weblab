@@ -1,16 +1,27 @@
 import { useEffect, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-import profileImg from './assets/resim.jpeg';
+import UIKit from './pages/UIKit';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import ProjectList from './components/sections/ProjectList';
+import ContactSection from './components/sections/ContactSection';
 import Alert from './components/Alert';
 import Button from './components/Button';
 import Card from './components/Card';
 import Input from './components/Input';
-import UIKit from './pages/UIKit';
 import { fetchProjects } from './services/projectService';
 import type { Category, Project, SortField, SortOrder } from './types/project';
 import { applyFilters } from './utils/projectHelpers';
 
+// Legacy About profil görseli için: repo’da dosya bulunmadığından derlemeyi bozmayalım.
+const profileImg = '';
+
 function App() {
+  const [page, setPage] = useState<'portfolio' | 'uikit'>('portfolio');
+
   const [errors, setErrors] = useState({
     name: '',
     email: '',
@@ -18,7 +29,6 @@ function App() {
     message: '',
   });
 
-  const [page, setPage] = useState<'portfolio' | 'uikit'>('portfolio');
   const [projects, setProjects] = useState<Project[]>([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<Category | 'all'>('all');
@@ -160,8 +170,23 @@ function App() {
         sm:rounded-[2rem] sm:shadow-neo dark:sm:shadow-2xl
         p-[clamp(1.5rem,4vw,2.5rem)] sm:p-[clamp(2.5rem,4vw,4rem)] lg:px-20 lg:py-16">
 
-        {/* Header */}
-        <header className="sticky top-0 z-10 bg-surface dark:bg-gray-900
+        <Header />
+        <div className="flex justify-end mb-14 mt-2">
+          <button
+            onClick={() => setPage('uikit')}
+            className="inline-flex items-center justify-center
+              text-primary dark:text-primary-soft font-semibold leading-none
+              px-[1.4rem] py-[0.85rem] rounded-[20px]
+              bg-surface dark:bg-gray-700 shadow-neo dark:shadow-md
+              hover:shadow-neo-in hover:translate-y-0.5
+              dark:hover:shadow-inner transition-all text-sm no-underline"
+          >
+            UI Kit
+          </button>
+        </div>
+
+        {/* Legacy Header (hidden) */}
+        <header className="hidden sticky top-0 z-10 bg-surface dark:bg-gray-900
           flex flex-col sm:flex-row items-center justify-between
           gap-5 pb-6 border-b border-black/8 dark:border-white/10 mb-14 pt-2">
           <h1 className="text-[2.4rem] sm:text-[3rem] lg:text-[3.5rem] font-extrabold
@@ -227,8 +252,14 @@ function App() {
 
         {/* Main */}
         <main id="main-content">
-          {/* Hakkımda */}
-          <section id="hakkimda" className="mt-20 scroll-mt-32">
+          <Hero />
+          <About />
+          <Skills />
+          <ProjectList />
+          <ContactSection />
+
+          {/* Hakkımda (legacy - hidden) */}
+          <section id="hakkimda" className="hidden mt-20 scroll-mt-32">
             <h2 className="text-[2.25rem] font-extrabold tracking-[-0.025em] mb-12
               flex items-center gap-4 text-gray-900 dark:text-white">
               <span className="block w-3.5 h-3.5 rounded-full bg-gradient-to-br from-primary to-accent shrink-0" />
@@ -276,7 +307,7 @@ function App() {
           </section>
 
           {/* Projeler */}
-          <section id="projeler" className="mt-20 scroll-mt-32">
+          <section id="projeler" className="hidden mt-20 scroll-mt-32">
             <h2 className="text-[2.25rem] font-extrabold tracking-[-0.025em] mb-12
               flex items-center gap-4 text-gray-900 dark:text-white">
               <span className="block w-3.5 h-3.5 rounded-full bg-gradient-to-br from-primary to-accent shrink-0" />
@@ -381,7 +412,7 @@ function App() {
           </section>
 
           {/* İletişim */}
-          <section id="iletisim" className="mt-20 scroll-mt-32">
+          <section id="iletisim" className="hidden mt-20 scroll-mt-32">
             <h2 className="text-[2.25rem] font-extrabold tracking-[-0.025em] mb-12
               flex items-center gap-4 text-gray-900 dark:text-white">
               <span className="block w-3.5 h-3.5 rounded-full bg-gradient-to-br from-primary to-accent shrink-0" />
@@ -482,8 +513,10 @@ function App() {
           </section>
         </main>
 
-        {/* Footer */}
-        <footer className="mt-24 pt-12 border-t-2 border-black/5 dark:border-white/5
+        <Footer />
+
+        {/* Legacy Footer (hidden) */}
+        <footer className="hidden mt-24 pt-12 border-t-2 border-black/5 dark:border-white/5
           text-center text-slate-600 dark:text-gray-400 font-medium pb-4">
           <p>&copy; {new Date().getFullYear()} Oğuzhan Gündüz. Tüm hakları saklıdır.</p>
           <p className="mt-4">
