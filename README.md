@@ -177,3 +177,56 @@ Bu çalışmada TypeScript ile tip güvenli bir veri modeli kurulmuş, `public/d
 * [`fd21674`](https://github.com/Ulwus/weblab/commit/fd21674d8dce9f0651bb0f782fff7ac2c0a73b79) feat: add project fetch service
 * [`4dcdbbf`](https://github.com/Ulwus/weblab/commit/4dcdbbf4a297dfec1503e65235eeef6ba8fb2220) feat: add project mock data JSON
 * [`c02f068`](https://github.com/Ulwus/weblab/commit/c02f0687f751a0642eec4ee638781db012cfd4ce) feat: add Project TypeScript types
+
+---
+
+## Lab 6: React Component Mimarisi, Hooks ve Form Yönetimi
+
+Bu çalışmada portföy uygulaması modüler React component mimarisiyle yeniden yapılandırılmıştır. `layout`, `sections` ve `forms` dizinlerinde 14 ayrı component oluşturulmuş; `useState`, `useEffect`, `useMemo` hook'ları ile state yönetimi sağlanmış; controlled form + validation yaklaşımı uygulanmıştır. Tüm prop'lar TypeScript interface'leri ile tiplenmiş, `any` tipi hiçbir yerde kullanılmamıştır.
+
+### Teslim Öncesi Kontrol Listesi
+
+- [x] En az 5 React component oluşturulmuş mu? (Header, Hero, ProjectList, ProjectCard, ContactForm vb.)
+- [x] Props TypeScript interface'leri ile tiplenmiş mi?
+- [x] `useState` ile en az 3 farklı state yönetiliyor mu?
+- [x] `useMemo` en az 1 yerde kullanılmış mı? (filtreleme/sıralama)
+- [x] Controlled form çalışıyor mu? (`value` + `onChange`)
+- [x] Form doğrulaması (validation) uygulanmış mı?
+- [x] Liste render'da `.map()` ve doğru `key` prop kullanılmış mı?
+- [x] JSON'dan veri çekme (fetch) çalışıyor mu?
+- [x] Hata ve yükleniyor durumları gösterilmiş mi?
+- [x] Responsive tasarım çalışıyor mu? (mobil, tablet, masaüstü)
+- [x] `any` tipi hiçbir yerde kullanılmamış mı?
+- [x] TypeScript derlemede hata yok mu? (`npx tsc --noEmit`)
+- [x] PR açılmış ve en az 1 arkadaş review'u alınmış mı?
+- [x] En az 5 anlamlı commit atılmış ve branch kullanılmış mı?
+- [x] Sınıf içi demo hazır mı?
+
+### Oluşturulan Component'ler (14 adet)
+
+| Component | Dosya | Tür |
+|-----------|-------|-----|
+| Header | `src/components/layout/Header.tsx` | Layout |
+| Footer | `src/components/layout/Footer.tsx` | Layout |
+| Hero | `src/components/sections/Hero.tsx` | Section |
+| About | `src/components/sections/About.tsx` | Section |
+| Skills | `src/components/sections/Skills.tsx` | Section |
+| ProjectList | `src/components/sections/ProjectList.tsx` | Section |
+| ProjectCard | `src/components/sections/ProjectCard.tsx` | Section |
+| ContactSection | `src/components/sections/ContactSection.tsx` | Section |
+| ContactForm | `src/components/forms/ContactForm.tsx` | Form |
+| ProjectFilter | `src/components/forms/ProjectFilter.tsx` | Form |
+| Alert | `src/components/Alert.tsx` | UI Kit |
+| Button | `src/components/Button.tsx` | UI Kit |
+| Card | `src/components/Card.tsx` | UI Kit |
+| Input | `src/components/Input.tsx` | UI Kit |
+
+### Yapılan Commitler
+
+* [`899fd9d`](https://github.com/Ulwus/weblab/commit/899fd9d) Merge pull request #7 from Ulwus/feature/checkpoint-1
+* [`30746d7`](https://github.com/Ulwus/weblab/commit/30746d7) feat: show profile image in About section
+* [`09fc0f5`](https://github.com/Ulwus/weblab/commit/09fc0f5) feat: integrate portfolio components in App
+* [`e2af4e7`](https://github.com/Ulwus/weblab/commit/e2af4e7) feat: add controlled ContactForm with validation
+* [`7a31833`](https://github.com/Ulwus/weblab/commit/7a31833) feat: add project filter/list/card with useMemo
+* [`c24b988`](https://github.com/Ulwus/weblab/commit/c24b988) feat: add Hero/About/Skills sections
+* [`3c4a6dc`](https://github.com/Ulwus/weblab/commit/3c4a6dc) feat: add Header and Footer layout
